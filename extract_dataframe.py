@@ -98,11 +98,8 @@ class TweetDfExtractor:
 
 
     def find_location(self)->list:
-        try:
-            location = self.tweets_list['user']['location']
-        except TypeError:
-            location = ''
-        
+        location = [x.get('user', {}).get('location', None) for x in
+                    self.tweets_list]
         return location
     
     def find_lang(self)->list:
@@ -111,7 +108,7 @@ class TweetDfExtractor:
     
         
         
-    def get_tweet_df(self, save=False)->pd.DataFrame:
+    def get_tweet_df(self, save=True)->pd.DataFrame:
         """required column to be generated you should be creative and add more features"""
         
         columns = ['created_at', 'source', 'original_text','polarity','subjectivity', 'lang', 'favorite_count', 'retweet_count', 
@@ -131,9 +128,11 @@ class TweetDfExtractor:
         hashtags = self.find_hashtags()
         mentions = self.find_mentions()
         location = self.find_location()
+        
         data = zip(created_at, source, text, polarity, subjectivity, lang, fav_count, retweet_count, screen_name, follower_count, friends_count, sensitivity, hashtags, mentions, location)
         df = pd.DataFrame(data=data, columns=columns)
-      
+        data = tuple(data)
+        print(data)
         if save:
             df.to_csv('processed_tweet_data.csv', index=False)
             print('File Successfully Saved.!!!')
