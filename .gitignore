@@ -3,3 +3,4 @@ data/
 sampletweets.json
 processed_tweet_data.csv
 clean_tweets.csv
+twitter_env
