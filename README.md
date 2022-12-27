@@ -1,6 +1,7 @@
 # Twitter-Data-Analysis
 
 Sentiment analysis on China-USA related topic collected from twitter.
+![Twitter Sentiment Analysis workflow drawio](https://user-images.githubusercontent.com/59474650/209673784-2d0a80de-1237-43ec-8d7a-83f389cfca7c.png)
 
 ## Data and Features
 Twitter is the Major Source of data for this challenge. We will provide a pre-downloaded data on china-usa related topics. The data comes in two parts. 
