@@ -1,29 +1,23 @@
 # Twitter-Data-Analysis
 
-### So here are the bare minimum requirement for completing this task
+Sentiment analysis on China-USA related topic collected from twitter.
 
-1. Use this template to create a repository called Twitter-Data-Analysis in your github account. See ["Creating a repository from a template."](https://docs.github.com/en/articles/creating-a-repository-from-a-template) for more information.
-2. [Download](https://drive.google.com/drive/folders/19G8dmehf9vU0u6VTKGV-yWsQOn3IvPsd) and extract the necessary data and put it in the data directory. The data should not not be added to git tracking.
-3. Create a branch called “bugfix” to fix the bugs in the fix_clean_tweets_dataframe.py and fix_extract_dataframe.py 
-4. In branch “bugfix” use the git mv command to rename fix_clean_tweets_dataframe.py to clean_tweets_dataframe.py and fix_extract_dataframe.py  to extract_dataframe.py 
-5. Fix the bugs on clean_tweets_dataframe.py and extract_dataframe.py 
-6. Multiple times, push the code you are working on to git, and once the fix is complete, merge the fix_bug branch to main branch
-7. Create a new branch called “testing” for updating the unit tests in the test/ folder to be applicable to the code you fixed. 
-    a. Build your unit and integration tests to run on small data (< 1 MB) that you copied from what is provided - avoid pushing large data to github
-    b. Think about the key elements (units can be functions, classes, or modules; multiple of them working together to accomplish a task requires integration testing) of the code base you are working on. Write the following
-      - Unit tests: for individual key functions and classes
-      - Integration tests: for the integration of multiple units working together
-8. After completing the unit and integration tests, merge  the “testing” branch with the main branch
-9. In all cases when you merge, make sure you first do Pull Request, review, then accept the merge.
-10. Use github actions in your repository such that when you git push new code (or merge a branch) to the main branch, the unit test in tests/*.py runs automatically. All tests should pass.
+## Data and Features
+Twitter is the Major Source of data for this challenge. We will provide a pre-downloaded data on china-usa related topics. The data comes in two parts. 
 
+- The [first](https://drive.google.com/file/d/1sfx50_tQ6jyBENo0L7hM3WL-11RhWqEB/view?usp=sharing) will be around 140mb of a raw twitter data dump in JSON format. This data is collected using the following keywords: [‘chinaus’, ‘chinaTaiwan’,  ‘chinaTaiwancrisis’, ‘taiwan’, ‘XiJinping’, ‘USCHINA’, ‘pelosi’, ‘TaiwanStraitsCrisis’, ‘WWIII’,  ‘pelosivisittotaiwan’],  
 
-After Completing this Challenge, you would have explore  
+- The [second](https://drive.google.com/file/d/1219EjMcjCD4yLqTbBUauOE0-95dqhz4Q/view?usp=sharing) one will be around 130mb of the same format, but collected based on the original keyword plus country specific geocodes included e.g. ‘-28.479,26.128,400km  for South Africa. 
 
-- Unittesting
-- Modular Coding
-- Software Engineering Best Practices
-- Python Package Structure
-- Bug Fix (Debugging)
+The final data represents a data drift that is common to many scenarios. You are expected to use the first data to build your model but set up a deployment strategy that will trigger an alert when data drift is detected. 
 
-Have Fun and Cheers
+## Modules:
+- Data exploration and pre-processing: perform data reading, pre-processing and data exploration and visualisations.
+- Topic modelling and sentiment analysis: using scikit-learn, Gensim, or other packages and APIs to model the topics discussed in the tweets and their sentiments.Use word clouds, k-mean clustering, etc. as a simple model for topic modelling.
+- Visualaization: Visualize the results on a dashboard
+
+## Tools used
+- scikit-learn, 
+- Gensim,
+- Pandas
+- nktl
