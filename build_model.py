@@ -13,13 +13,13 @@ class BuildModel():
 
     def makeCorpus(self, myTweetList, myDict):
         """Create corpus from list of tokenized documents"""
-        return [myDict.doc2vow(tweet) for tweet in myTweetList]
+        return [myDict.doc2bow(tweet) for tweet in myTweetList]
     
     def createLDA(self, myCorpus, myDictionary, myTopics = 50, myPasses = 10, myIterations = 50, myAlpha=0.001):
         """LDA model call function"""
         return models.LdaMulticore(myCorpus, id2word=myDictionary, num_topics=myTopics, passes=myPasses, iterations=myIterations, alpha=myAlpha)
     
-    def saveModelObjects(myLda: models.LdaMulticore, myModelName:str, myCorp, myCopName:str, myDict, myDictName:str):
+    def saveModelObjects(self, myLda, myModelName, myCorp, myCopName, myDict, myDictName):
         """Save model objects"""
         SaveLoad.save(myLda, myModelName)
         corpora.MmCorpus.serialize(myCopName, myCorp)
