@@ -1,6 +1,5 @@
 from gensim import corpora, models
 from gensim.utils import SaveLoad
-from gensim.matutils import corpus2csc, sparse2full, corpus2dense
 
 
 class BuildModel():
